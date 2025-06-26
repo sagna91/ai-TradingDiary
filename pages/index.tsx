@@ -13,3 +13,6 @@ export default function Home() {
     </>
   );
 }
+git add pages/index.tsx
+git commit -m "add index.tsx entry point"
+git push
