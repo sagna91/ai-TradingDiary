@@ -1,9 +1,8 @@
-
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
 import Papa from "papaparse";
 
 export default function TradingDiary() {
@@ -57,42 +56,4 @@ export default function TradingDiary() {
   };
 
   return (
-    <div className="p-6 grid gap-6 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold">AI-дневник трейдера</h1>
-
-      <Card>
-        <CardContent className="p-4 grid gap-4">
-          <label className="font-medium">Загрузить отчёт сделок (.html/.csv)</label>
-          <Input type="file" accept=".csv,.html" onChange={handleFileUpload} />
-          {fileName && <p className="text-sm text-muted-foreground">Загружено: {fileName}</p>}
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="p-4 grid gap-4">
-          <label className="font-medium">Что вы чувствовали в момент сделки?</label>
-          <Textarea value={emotions} onChange={(e) => setEmotions(e.target.value)} rows={3} />
-
-          <label className="font-medium">Почему вы приняли решение войти в сделку?</label>
-          <Textarea value={reasoning} onChange={(e) => setReasoning(e.target.value)} rows={3} />
-        </CardContent>
-      </Card>
-
-      {analysisResult && (
-        <Card>
-          <CardContent className="p-4 grid gap-2">
-            <h2 className="text-lg font-semibold">AI-анализ</h2>
-            <p><strong>Прибыльные символы:</strong> {analysisResult.profitableSymbols.join(", ")}</p>
-            <p><strong>Убыточные символы:</strong> {analysisResult.losingSymbols.join(", ")}</p>
-            <p><strong>Среднее удержание:</strong> {analysisResult.averageHoldingTime}</p>
-            <ul className="list-disc pl-5 mt-2">
-              {analysisResult.suggestions.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      )}
-    </div>
-  );
-}
+    <div className="p-6 grid gap-6 max-w
